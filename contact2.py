@@ -2,7 +2,7 @@
 
 class Contact:
 
-    def __index__(self, firstname, lastname, address, home, email):
+    def __init__(self, firstname, lastname, address, home, email):
         self.firstname = firstname
         self.lastname = lastname
         self.address = address
