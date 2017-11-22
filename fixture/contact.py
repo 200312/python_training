@@ -26,18 +26,19 @@ class ContactHelper:
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys(contact.email)
         # input contact creation
-        wd.find_element_by_name("//div[@id='content']/form/input[21]").click()
-        self.return_home_page()
+        wd.find_element_by_name("submit").click()
+        self.return_to_home_page()
 
     def delete_first_contact(self):
         wd = self.app.wd
         # select first contact
         wd.find_element_by_name("selected[]").click()
         # submit deletion
-        wd.find_element_by_name("Delete").click()
-        self.return_home_page()
+        wd.find_element_by_xpath("//div/div[4]/form[2]/div[2]/input").click()
+        wd.switch_to_alert().accept()
+        self.return_to_home_page()
 
-    def return_home_page(self):
+    def return_to_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home page").click()
+        wd.find_element_by_link_text("home").click()
 
