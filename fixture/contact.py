@@ -44,7 +44,7 @@ class ContactHelper:
         wd = self.app.wd
         self.select_first_contact()
         # open modification form
-        wd.find_element_by_name("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         # fill contact form
         self.fill_contact_form(new_contact_data)
         # submit modification
