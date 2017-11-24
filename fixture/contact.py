@@ -31,11 +31,23 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
-        # select first contact
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_contact()
         # submit deletion
         wd.find_element_by_xpath("//div/div[4]/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
+        self.return_to_home_page()
+
+    def select_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
+
+    def modefy_first_contact(self, new_contact_data ):
+        wd = self.app.wd
+        self.select_first_contact()
+        # open modification form
+        wd.find_element_by_name("//tr[@class='odd']/td[8]/a/img").click()
+        # fill contact form
+        # submit modification
         self.return_to_home_page()
 
     def return_to_home_page(self):
