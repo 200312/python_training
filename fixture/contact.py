@@ -76,7 +76,7 @@ class ContactHelper:
         contacts = []
         for element in wd.find_elements_by_name("selected[]"):
             text = element.text
-            contacts.append(Contact(firstname=text))
+            contacts.append(Contact(firstname=text, id=id))
         return contacts
 
 
