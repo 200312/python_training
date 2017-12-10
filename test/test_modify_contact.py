@@ -3,7 +3,7 @@ from random import randrange
 
 def test_modify_contact_firstname(app):
         if app.contact.count() == 0:
-            app.contact.create_contact(Contact(firstname="test"))
+            app.contact.create_contact(Contact(firstname="firstname"))
         old_contacts = app.contact.get_contact_list()
         index = randrange(len(old_contacts))
         contact = Contact(firstname="New contact")
