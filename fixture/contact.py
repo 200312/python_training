@@ -141,9 +141,9 @@ class ContactHelper:
         wd = self.app.wd
         self.open_contact_view_by_index(index)
         text = wd.find_element_by_id("content").text
-        text1 = wd.find_element_by_link_text("email").text
-        text2 = wd.find_element_by_link_text("email2").text
-        text3 = wd.find_element_by_link_text("email3").text
+        text1 = wd.find_element_by_link_text("ab@mail.ru").text
+        text2 = wd.find_element_by_link_text("ab1@mail.ru").text
+        text3 = wd.find_element_by_link_text("ab2@mail.ru").text
         homephone = re.search("H: (.*)", text).group(1)
         workphone = re.search("W: (.*)", text).group(1)
         mobilephone = re.search("M: (.*)", text).group(1)
