@@ -100,9 +100,11 @@ class ContactHelper:
                 id = cells[0].find_element_by_tag_name("input").get_attribute("value")
                 all_phones = cells[5].text
                 all_email = cells[4].text
+                address = cells[3].text.splitlines
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname,
                                                   id=id, all_phones_from_home_page=all_phones,
-                                                  all_email_from_home_page=all_email))
+                                                  all_email_from_home_page=all_email,
+                                                 address=address))
 
         return list(self.contact_cache)
 
@@ -133,9 +135,11 @@ class ContactHelper:
         email = wd.find_element_by_name("email").get_attribute("value")
         email2 = wd.find_element_by_name("email2").get_attribute("value")
         email3 = wd.find_element_by_name("email3").get_attribute("value")
+        address = wd.find_element_by_name("address").get_attribute("value")
+        secondaryaddress = wd.find_element_by_name("address2").get_attribute("value")
         return Contact(firstname=firstname, lastname=lastname, id=id, homephone=homephone,
                        workphone=workphone, mobilephone=mobilephone, secondaryphone=secondaryphone,
-                       email=email, email2=email2, email3=email3)
+                       email=email, email2=email2, email3=email3, address=address, secondaryaddress=secondaryaddress)
 
     def get_contact_from_view_page(self, index):
         wd = self.app.wd
@@ -151,9 +155,11 @@ class ContactHelper:
         email = re.search("(.*)", text1).group(1)
         email2 = re.search("(.*)", text2).group(1)
         email3 = re.search("(.*)", text3).group(1)
+        address = re.search("Biysk(.*)", text).group(1)
+        secondaryaddress = re.search("Biysk1(.*)", text).group(1)
         return Contact(id=id, homephone=homephone,
                        workphone=workphone, mobilephone=mobilephone, secondaryphone=secondaryphone,
-                       email=email, email2=email2, email3=email3)
+                       email=email, email2=email2, email3=email3, address=address, secondaryaddress=secondaryaddress)
 
 
 
