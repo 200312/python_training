@@ -95,8 +95,8 @@ class ContactHelper:
             self.contact_cache = []
             for row in wd.find_elements_by_name("entry"):
                 cells = row.find_elements_by_tag_name("td")
-                firstname = cells[1].text
-                lastname = cells[2].text
+                firstname = cells[2].text
+                lastname = cells[1].text
                 id = cells[0].find_element_by_tag_name("input").get_attribute("value")
                 all_phones = cells[5].text
                 all_email = cells[4].text
@@ -148,6 +148,7 @@ class ContactHelper:
         text1 = wd.find_element_by_link_text("ab@mail.ru").text
         text2 = wd.find_element_by_link_text("ab1@mail.ru").text
         text3 = wd.find_element_by_link_text("ab2@mail.ru").text
+        text4 = wd.find_element_by_xpath("//div[@id='content']//b[.='Julia J  Gurianova']").text
         homephone = re.search("H: (.*)", text).group(1)
         workphone = re.search("W: (.*)", text).group(1)
         mobilephone = re.search("M: (.*)", text).group(1)
@@ -155,9 +156,10 @@ class ContactHelper:
         email = re.search("(.*)", text1).group(1)
         email2 = re.search("(.*)", text2).group(1)
         email3 = re.search("(.*)", text3).group(1)
-        address = re.search("Biysk(.*)", text).group(1)
-        secondaryaddress = re.search("Biysk2(.*)", text).group(1)
-        return Contact(id=id, homephone=homephone,
+        address = re.search("Biysk(.*)", text).group()
+        secondaryaddress = re.search("Biysk(.*)", text).group()
+        firstname = re.search("J Gurianova(.*)", text4).group(1)
+        return Contact(id=id, firstname=firstname, homephone=homephone,
                        workphone=workphone, mobilephone=mobilephone, secondaryphone=secondaryphone,
                        email=email, email2=email2, email3=email3, address=address, secondaryaddress=secondaryaddress)
 
