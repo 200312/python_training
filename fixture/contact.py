@@ -148,7 +148,6 @@ class ContactHelper:
         text1 = wd.find_element_by_link_text("ab@mail.ru").text
         text2 = wd.find_element_by_link_text("ab1@mail.ru").text
         text3 = wd.find_element_by_link_text("ab2@mail.ru").text
-        text4 = wd.find_element_by_xpath("//div[@id='content']//b[.='Julia J  Gurianova']").text
         homephone = re.search("H: (.*)", text).group(1)
         workphone = re.search("W: (.*)", text).group(1)
         mobilephone = re.search("M: (.*)", text).group(1)
@@ -158,7 +157,7 @@ class ContactHelper:
         email3 = re.search("(.*)", text3).group(1)
         address = re.search("Biysk(.*)", text).group()
         secondaryaddress = re.search("Biysk(.*)", text).group()
-        firstname = re.search("J Gurianova(.*)", text4).group(1)
+        firstname = re.search("Julia J Gurianova(.*)", text).group(1)
         return Contact(id=id, firstname=firstname, homephone=homephone,
                        workphone=workphone, mobilephone=mobilephone, secondaryphone=secondaryphone,
                        email=email, email2=email2, email3=email3, address=address, secondaryaddress=secondaryaddress)
