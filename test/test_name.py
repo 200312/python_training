@@ -11,7 +11,7 @@ def test_firstname_on_contact_view_page(app):
     assert contact_from_view_page.firstname == contact_from_edit_page.firstname
 
 def clear(s):
-    return re.sub("[\n]", "", s)
+    return re.sub("[\n\s+$]", "", s)
 
 def merge_firstname_like_on_home_page(contact):
     return "\n".join(filter(lambda x: x != "", (map(lambda x: clear(x), [contact.firstname]))))
