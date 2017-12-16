@@ -157,8 +157,8 @@ class ContactHelper:
         email3 = re.search("(.*)", text3).group(1)
         address = re.search("Biysk(.*)", text).group()
         secondaryaddress = re.search("Biysk(.*)", text).group()
-        firstname = re.search("Julia J Gurianova(.*)", text).group(1)
-        lastname =  re.search("Julia J Gurianova(.*)", text).group()
+        firstname = re.search("(.*) J Gurianova", text).group(1)
+        lastname = re.search("Julia J (.*)", text).group(1)
         return Contact(id=id, firstname=firstname, lastname=lastname, homephone=homephone,
                        workphone=workphone, mobilephone=mobilephone, secondaryphone=secondaryphone,
                        email=email, email2=email2, email3=email3, address=address, secondaryaddress=secondaryaddress)
