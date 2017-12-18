@@ -1,17 +1,32 @@
 from sys import maxsize
 
+
 class Contact:
 
-    def __init__(self, firstname=None, lastname=None, address=None, home=None, email=None, id=None):
+    def __init__(self, firstname=None, lastname=None, id=None, homephone=None, mobilephone=None, workphone=None,
+                 secondaryphone=None, address=None, secondaryaddress=None, email=None, email2=None, email3=None,
+                 all_phones_from_home_page=None, all_email_from_home_page=None, firstname_from_home_page=None,
+                 lastname_from_home_page=None, address_from_home_page=None):
         self.firstname = firstname
+        self.firstname_from_home_page = firstname_from_home_page
         self.lastname = lastname
+        self.lastname_from_home_page = lastname_from_home_page
+        self.homephone = homephone
+        self.mobilephone = mobilephone
+        self.workphone = workphone
+        self.secondaryphone = secondaryphone
+        self.all_phones_from_home_page = all_phones_from_home_page
         self.address = address
-        self.home = home
+        self.secondaryaddress = secondaryaddress
+        self.address_from_home_page = address_from_home_page
         self.email = email
+        self.email2 = email2
+        self.email3 = email3
+        self.all_email_from_home_page = all_email_from_home_page
         self.id = id
 
     def __repr__(self):
-        return "%s:%s:%s" % (self.id, self.firstname, self.lastname)
+        return "%s:%s:%s:%s:%s:%s" % (self.id, self.firstname, self.lastname, self.address, self.homephone, self.email)
 
     def __eq__(self, other):
         return (self.id is None or other.id is None or self.id == other.id) and self.firstname == other.firstname and self.lastname == other.lastname
