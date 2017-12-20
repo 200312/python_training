@@ -1,4 +1,5 @@
 
+
 from math import sqrt
 
 
@@ -20,5 +21,6 @@ def solve(a, b, c):
 solve(1, 1, 1)
 solve(1, 2, 1)
 solve(1, 5, 6)
+
 
 
