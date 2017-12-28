@@ -97,7 +97,8 @@ class ContactHelper:
         self.open_home_page()
         self.select_contact_by_id(id)
         #open modification form
-        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        wd.find_element_by_name("entry").click()
+        #wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         #fill contact form
         self.fill_contact_form(new_contact_data)
         #submit modification
@@ -190,6 +191,8 @@ class ContactHelper:
         return Contact(id=id, firstname=firstname, lastname=lastname, homephone=homephone,
                        workphone=workphone, mobilephone=mobilephone, secondaryphone=secondaryphone,
                        email=email, email2=email2, email3=email3, address=address, secondaryaddress=secondaryaddress)
+
+
 
 
 
