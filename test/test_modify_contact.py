@@ -6,7 +6,7 @@ def test_modify_contact_firstname(app, db, check_ui):
             app.contact.create_contact(Contact(firstname="firstname"))
      old_contacts = db.get_contact_list()
      contact = random.choice(old_contacts)
-     app.contact.modify_contact_by_id(contact.id)
+     app.contact.modify_contact_by_id(contact.id, contact.new_contact_data)
      new_contacts = db.get_contact_list()
      assert len(old_contacts) == len(new_contacts)
      old_contacts.remove(contact)
