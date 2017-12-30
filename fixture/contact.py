@@ -193,6 +193,18 @@ class ContactHelper:
                        email=email, email2=email2, email3=email3, address=address, secondaryaddress=secondaryaddress)
 
 
+    def add_contact_to_group(self):
+        wd = self.app.wd
+        self.app.open_home_page()
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_name("to_group").click()
+        wd.find_element_by_xpath("//div[@class='right']/select//option[21]").click()
+        wd.find_element_by_name("add").click()
+
+
+
+
+
 
 
 
